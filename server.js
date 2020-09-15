@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/Workouts";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/Fitness-Tracker";
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useFindAndModify: false,
@@ -24,14 +24,4 @@ app.listen(PORT, function () {
   console.log(`App listening on Port ${PORT}`);
 });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Workouts", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-}).then(() => console.log("Successfully connected to MDB via mongoose"))
-  .catch(err => console.log(err));
 
-app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}!`);
-});
