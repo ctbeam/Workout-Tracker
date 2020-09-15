@@ -25,7 +25,7 @@ app.listen(PORT, function () {
 });
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/deep-thoughts",
+  process.env.MONGODB_URI || "mongodb://localhost/Fitness-Tracker",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
