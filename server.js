@@ -24,12 +24,14 @@ app.listen(PORT, function () {
   console.log(`App listening on Port ${PORT}`);
 });
 
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/Fitness-Tracker",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  }
-);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Workouts", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+}).then(() => console.log("Successfully connected to MDB via mongoose"))
+  .catch(err => console.log(err));
+
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}!`);
+});
