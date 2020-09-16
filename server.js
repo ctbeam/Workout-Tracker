@@ -11,9 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-var MONGODB_URI =
-  "mongodb+srv://ctbeam:Hedeman!1@cluster0.fpssx.azure.mongodb.net/workout?retryWrites=true&w=majority";
-mongoose.connect(MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useFindAndModify: false,
 });
